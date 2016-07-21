@@ -78,13 +78,20 @@ var Buttons = React.createClass({
 					<Button type={type.value}>{type.label}</Button>
 				</div>
 			);
-		});
+		}).concat([(
+			<div key="disabled" className="code-example__example-element--inline">
+				<Button disabled type={variantType[0].value}>{variantType[0].label}</Button>
+			</div>
+		)]);
 	},
 	renderButtonVariantsSource(variantType) {
 		var parts = variantType.map(type => {
 			return `<Button type="${type.value}">${type.label}</Button>`;
 		});
-		return parts.join('\n');
+		var disabled = (
+			`<Button disabled type=${variantType[0].value}>${variantType[0].label}</Button>`
+		);
+		return parts.concat([disabled]).join('\n');
 	},
 
 	render () {
