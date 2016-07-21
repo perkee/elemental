@@ -49,8 +49,7 @@ const BUTTON_LINK_VARIANTS = [
 	{ label: 'Link Success',     value: 'link-success' },
 	{ label: 'Link Warning',     value: 'link-warning' },
 	{ label: 'Link Danger',      value: 'link-danger' },
-	{ label: 'Link Cancel',      value: 'link-cancel' },
-	{ label: 'Link Delete',      value: 'link-delete' }
+	{ label: 'Link Cancel',      value: 'link-cancel' }
 ];
 
 var Buttons = React.createClass({

@@ -1,5 +1,5 @@
 {
-  "name": "elemental",
+  "name": "@mondaychen/elemental",
   "version": "0.6.0",
   "description": "React UI Framework",
   "main": "lib/Elemental.js",
