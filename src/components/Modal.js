@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../react';
 import ReactDOM from 'react-dom';
 import Transition from 'react-addons-css-transition-group';
 import blacklist from 'blacklist';

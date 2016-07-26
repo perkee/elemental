@@ -1,6 +1,6 @@
 var blacklist = require('blacklist');
 var classNames = require('classnames');
-var React = require('react');
+var React = require('../react');
 
 var Radio = React.createClass({
 	propTypes: {
@@ -26,4 +26,3 @@ var Radio = React.createClass({
 });
 
 module.exports = Radio;
-

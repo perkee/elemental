@@ -1,4 +1,4 @@
-const React = require('react');
+const React = require('../react');
 const blacklist = require('blacklist');
 const classNames = require('classnames');
 

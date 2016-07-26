@@ -1,6 +1,6 @@
 import blacklist from 'blacklist';
 import classNames from 'classnames';
-import React from 'react';
+import React from '../react';
 import icons from '../icons';
 
 module.exports = React.createClass({

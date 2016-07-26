@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
+import React from '../react';
 
 module.exports = React.createClass({
 	displayName: 'SegmentedControl',

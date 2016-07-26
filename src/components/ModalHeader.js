@@ -1,5 +1,5 @@
 var classnames = require('classnames');
-var React = require('react');
+var React = require('../react');
 var blacklist = require('blacklist');
 
 module.exports = React.createClass({
