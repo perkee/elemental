@@ -17,19 +17,13 @@
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 
 	&:enabled {
-		&:hover,
-		&:focus,
-		&.focus {
+		&:hover {
 			background-image: none;
 			background-color: darken(@background, 5%);
 			border-color: @background darken(@background, 5%) darken(@background, 10%);
 			box-shadow: 0 1px 0 rgba(0,0,0,0.1);
 			color: @color;
 			outline: none;
-		}
-		&:focus,
-		&.focus {
-			box-shadow: 0 0 0 3px fade(@background, 25%);
 		}
 		&:active,
 		&.active {
@@ -57,16 +51,6 @@
 			box-shadow: 0 1px 0 rgba(0,0,0,0.1);
 			color: white;
 		}
-		&:focus {
-			border-color: darken(@color, 6%) darken(@color, 12%) darken(@color, 18%);
-			box-shadow: 0 0 0 3px fade(@color, 25%);
-			color: white;
-			color: @color;
-			outline: none;
-		}
-		&:hover:focus {
-			color: white;
-		}
 		&:active {
 			background-color: darken(@color, 4%);
 			background-image: none;
@@ -91,8 +75,7 @@
 	color: @color;
 
 	&:enabled {
-		&:hover,
-		&:focus {
+		&:hover {
 			background-image: none;
 			border-color: darken(@border, 10%);
 			color: @color;
@@ -100,10 +83,6 @@
 		}
 		&:hover {
 			background-color: mix(@border, @body-bg, 8%);
-		}
-		&:focus,
-		&.focus {
-			box-shadow: 0 0 0 3px fade(@border, 10%);
 		}
 		&:active {
 			background-color: fade(@border, 20%);
@@ -131,7 +110,6 @@
 	}
 	&,
 	&:hover,
-	&:focus,
 	&:active {
 		border-color: transparent;
 		outline: none;
@@ -139,10 +117,6 @@
 	&:enabled {
 		&:hover {
 			color: @hover-color;
-			text-decoration: @hover-decoration;
-		}
-		&:focus {
-			color: @color;
 			text-decoration: @hover-decoration;
 		}
 	}

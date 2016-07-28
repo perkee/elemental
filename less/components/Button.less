@@ -31,10 +31,7 @@
 	-webkit-appearance: none;
 
 	&:enabled {
-		&:hover,
-		&:focus,
-		&.focus,
-		&.is-focus {
+		&:hover {
 			color: @button-default-color;
 			text-decoration: none;
 		}
@@ -78,24 +75,12 @@
 			background-color: #e6e6e6;
 			box-shadow: 0 1px 0 rgba(0,0,0,0.1);
 		}
-		&:focus {
-			border-color: @app-primary;
-			box-shadow: 0 0 0 3px fade(@app-primary, 10%);
-			color: @text-color;
-			outline: none;
-		}
 		&.is-active,
 		&:active {
 			background: #e6e6e6;
 			border-color: darken(@input-border-color, 10%);
 			box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 			color: @text-color;
-		}
-
-		// yuck...
-		&.is-active:focus:not(:active) {
-			border-color: @app-primary;
-			box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 3px fade(@app-primary, 10%);
 		}
 	}
 
@@ -236,13 +221,8 @@
 			.border-right-radius(@border-radius-base);
 		}
 		&:hover,
-		&:active,
-		&:focus {
+		&:active{
 			position: relative;
-		}
-		// circumvent bug where adjacent siblings would overlap on hover
-		&:focus {
-			z-index: 1;
 		}
 	}
 }
