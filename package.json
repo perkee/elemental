@@ -1,6 +1,6 @@
 {
   "name": "@mondaychen/elemental",
-  "version": "0.6.0-freewheel-2",
+  "version": "0.6.0-freewheel-6",
   "description": "React UI Framework",
   "main": "lib/Elemental.js",
   "author": "Jed Watson",
@@ -43,7 +43,7 @@
     "build:lib": "gulp build:lib",
     "bump": "gulp bump",
     "lint": "eslint .",
-    "prepublish": "npm run build:lib",
+    "prepublish": "npm run build && npm run build:lib",
     "publish:npm": "gulp publish:npm",
     "publish:site": "gulp publish:examples",
     "publish:tag": "gulp publish:tag",

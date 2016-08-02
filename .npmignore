@@ -1,7 +1,6 @@
 /coverage/
 /test/
 .*
-dist
 public
 site
 src
