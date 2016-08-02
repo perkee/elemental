@@ -4,6 +4,9 @@ var oldCreateElement = React.createElement;
 var UNIQUE_CLASS_NAME = '__elemental__';
 
 function makeClassName(className) {
+  if (!className) {
+    return UNIQUE_CLASS_NAME;
+  }
   if(className.indexOf(UNIQUE_CLASS_NAME) > -1) {
     return className;
   }
@@ -13,7 +16,7 @@ function makeClassName(className) {
 function createElement() {
   var type = arguments[0];
   var props = arguments[1];
-  if (!props || !props.className) {
+  if (!props) {
     return oldCreateElement.apply(React, arguments);
   }
   arguments[1] = { ...props, className: makeClassName(props.className)};
