@@ -161,13 +161,13 @@
 .Checkbox__input {
 	position: relative;
 	top: -1px;
-  .cursor-enabled;
+	.cursor-enabled;
 }
 
 .Checkbox__label,
 .Radio__label {
 	margin-left: .5em;
-  .cursor-enabled;
+	.cursor-enabled;
 }
 
 .inline-controls > .Checkbox,
@@ -181,9 +181,10 @@
 .Checkbox--disabled,
 .Radio--disabled {
 	color: @control-disabled-color;
-  .Checkbox__label, .Radio__label {
-    .cursor-disabled;
-  }
+	.Checkbox__label,
+	.Radio__label {
+		.cursor-disabled;
+	}
 }
 
 @media (min-width: @screen-sm) {
