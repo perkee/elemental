@@ -43,7 +43,9 @@
 	&.disabled,
 	&[disabled] {
 		background-color: @input-bg-disabled;
-		pointer-events: none;
+	}
+	&[disabled]:hover {
+		border-color: @input-border-color;
 	}
 
 	// firefox weirdness
