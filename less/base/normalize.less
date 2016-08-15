@@ -300,8 +300,10 @@ input[type="submit"] {
 //
 
 button[disabled],
-html input[disabled] {
-	cursor: default;
+html input[disabled],
+select[disabled],
+textarea[disabled] {
+  .cursor-disabled;
 }
 
 //
