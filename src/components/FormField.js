@@ -27,7 +27,15 @@ module.exports = React.createClass({
 			'one-sixth',
 			'five-sixths',
 		]),
+		inline: React.PropTypes.bool
 	},
+
+	getDefaultProps() {
+		return {
+			inline: false
+		};
+	},
+
 	render () {
 		// classes
 		var componentClass = classNames('FormField', {
@@ -44,10 +52,17 @@ module.exports = React.createClass({
 			</label>
 		) : null;
 
+		// child components
+		var childComponents = this.props.inline ? (
+			<div className="inline-controls">
+				{this.props.children}
+			</div>
+		) : this.props.children;
+
 		return (
 			<div className={componentClass} {...props}>
 				{componentLabel}
-				{this.props.children}
+				{childComponents}
 			</div>
 		);
 	},
