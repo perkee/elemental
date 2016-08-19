@@ -10,6 +10,7 @@ module.exports = React.createClass({
 		id: React.PropTypes.string,
 		label: React.PropTypes.string,
 		offsetAbsentLabel: React.PropTypes.bool,
+		inline: React.PropTypes.bool,
 		width: React.PropTypes.oneOf([
 			'one-half',
 			'two-quarters',
@@ -26,8 +27,7 @@ module.exports = React.createClass({
 			'four-fifths',
 			'one-sixth',
 			'five-sixths',
-		]),
-		inline: React.PropTypes.bool
+		])
 	},
 
 	getDefaultProps() {
@@ -43,7 +43,7 @@ module.exports = React.createClass({
 		}, this.props.width, this.props.className);
 
 		// props
-		var props = blacklist(this.props, 'className', 'label', 'offsetAbsentLabel', 'width');
+		var props = blacklist(this.props, 'className', 'label', 'offsetAbsentLabel', 'width', 'inline');
 
 		// elements
 		var componentLabel = this.props.label ? (
