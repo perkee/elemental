@@ -17,13 +17,13 @@ module.exports = React.createClass({
 		options: React.PropTypes.arrayOf(
 			React.PropTypes.shape({
 				label: React.PropTypes.string,
-				value: React.PropTypes.string,
+				value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number])
 			})
 		).isRequired,
 		prependEmptyOption: React.PropTypes.bool,
 		required: React.PropTypes.bool,
 		requiredMessage: React.PropTypes.string,
-		value: React.PropTypes.string,
+		value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number])
 	},
 	getDefaultProps () {
 		return {
