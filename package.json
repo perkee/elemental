@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://git.dev.fwmrm.net/mdchen/elemental.git"
+    "url": "https://git.dev.fwmrm.net/us-web/elemental.git"
   },
   "publishConfig": {
     "registry": "http://nexus.dev.fwmrm.net/nexus/content/repositories/npm-internal/"
