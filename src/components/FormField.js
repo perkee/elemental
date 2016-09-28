@@ -9,6 +9,7 @@ module.exports = React.createClass({
 		htmlFor: React.PropTypes.string,
 		id: React.PropTypes.string,
 		label: React.PropTypes.string,
+		labelStyle: React.PropTypes.object,
 		offsetAbsentLabel: React.PropTypes.bool,
 		inline: React.PropTypes.bool,
 		width: React.PropTypes.oneOf([
@@ -43,11 +44,11 @@ module.exports = React.createClass({
 		}, this.props.width, this.props.className);
 
 		// props
-		var props = blacklist(this.props, 'className', 'label', 'offsetAbsentLabel', 'width', 'inline');
+		var props = blacklist(this.props, 'className', 'label', 'offsetAbsentLabel', 'width', 'inline', 'labelStyle');
 
 		// elements
 		var componentLabel = this.props.label ? (
-			<label className="FormLabel" htmlFor={this.props.id || this.props.htmlFor}>
+			<label className="FormLabel" htmlFor={this.props.id || this.props.htmlFor} style={this.props.labelStyle}>
 				{this.props.label}
 			</label>
 		) : null;
