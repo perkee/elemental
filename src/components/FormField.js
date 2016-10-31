@@ -8,7 +8,10 @@ module.exports = React.createClass({
 		className: React.PropTypes.string,
 		htmlFor: React.PropTypes.string,
 		id: React.PropTypes.string,
-		label: React.PropTypes.string,
+		label: React.PropTypes.oneOfType([
+			React.PropTypes.element,
+			React.PropTypes.string,
+		]),
 		labelStyle: React.PropTypes.object,
 		offsetAbsentLabel: React.PropTypes.bool,
 		inline: React.PropTypes.bool,
