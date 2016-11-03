@@ -24,12 +24,12 @@ module.exports = React.createClass({
 		required: React.PropTypes.bool,
 		requiredMessage: React.PropTypes.string,
 		value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-		showWithWrapper: React.PropTypes.bool
+		withoutFormFieldWrapper: React.PropTypes.bool
 	},
 	getDefaultProps () {
 		return {
 			requiredMessage: 'This field is required',
-			showWithWrapper: true
+			withoutFormFieldWrapper: false
 		};
 	},
 	getInitialState () {
@@ -87,7 +87,7 @@ module.exports = React.createClass({
 	},
 	render () {
 		// props
-		let props = blacklist(this.props, 'prependEmptyOption', 'firstOption', 'alwaysValidate', 'htmlFor', 'id', 'label', 'onChange', 'options', 'required', 'requiredMessage', 'className', 'showWithWrapper');
+		let props = blacklist(this.props, 'prependEmptyOption', 'firstOption', 'alwaysValidate', 'htmlFor', 'id', 'label', 'onChange', 'options', 'required', 'requiredMessage', 'className', 'withoutFormFieldWrapper');
 
 		// classes
 		let componentClass = classNames('FormField', {
@@ -105,7 +105,7 @@ module.exports = React.createClass({
 		// dynamic elements
 		let forAndID = this.props.htmlFor || this.props.id;
 		let componentLabel = this.props.label ? <label className="FormLabel" htmlFor={forAndID}>{this.props.label}</label> : null;
-		const { showWithWrapper } = this.props;
+		const { withoutFormFieldWrapper } = this.props;
 
 		// options
 		let options = this.props.options.map(function(opt, i) {
@@ -126,11 +126,11 @@ module.exports = React.createClass({
 			</div>
 		);
 
-		return showWithWrapper ? (
+		return withoutFormFieldWrapper ? selectComponent : (
 			<div className={componentClass}>
 				{componentLabel}
 				{ selectComponent }
 				{validationMessage}
-			</div>) : selectComponent;
+			</div>);
 	},
 });
