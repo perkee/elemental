@@ -118,12 +118,12 @@ module.exports = React.createClass({
 		}
 
 		const selectComponent = (
-				<div className="u-pos-relative">
-						<select className="FormInput FormSelect" id={forAndID} onChange={this.handleChange} onBlur={this.handleBlur} {...props}>
-								{options}
-						</select>
-						{this.renderIcon(icons.selectArrows)}
-				</div>
+			<div className="u-pos-relative">
+				<select className="FormInput FormSelect" id={forAndID} onChange={this.handleChange} onBlur={this.handleBlur} {...props}>
+					{options}
+				</select>
+				{this.renderIcon(icons.selectArrows)}
+			</div>
 		);
 
 		return showWithWrapper ? (
