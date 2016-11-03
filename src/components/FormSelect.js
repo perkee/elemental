@@ -23,11 +23,13 @@ module.exports = React.createClass({
 		prependEmptyOption: React.PropTypes.bool,
 		required: React.PropTypes.bool,
 		requiredMessage: React.PropTypes.string,
-		value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number])
+		value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+		showWithWrapper: React.PropTypes.bool
 	},
 	getDefaultProps () {
 		return {
 			requiredMessage: 'This field is required',
+			showWithWrapper: true
 		};
 	},
 	getInitialState () {
@@ -85,7 +87,7 @@ module.exports = React.createClass({
 	},
 	render () {
 		// props
-		let props = blacklist(this.props, 'prependEmptyOption', 'firstOption', 'alwaysValidate', 'htmlFor', 'id', 'label', 'onChange', 'options', 'required', 'requiredMessage', 'className');
+		let props = blacklist(this.props, 'prependEmptyOption', 'firstOption', 'alwaysValidate', 'htmlFor', 'id', 'label', 'onChange', 'options', 'required', 'requiredMessage', 'className', 'showWithWrapper');
 
 		// classes
 		let componentClass = classNames('FormField', {
@@ -103,6 +105,7 @@ module.exports = React.createClass({
 		// dynamic elements
 		let forAndID = this.props.htmlFor || this.props.id;
 		let componentLabel = this.props.label ? <label className="FormLabel" htmlFor={forAndID}>{this.props.label}</label> : null;
+		const { showWithWrapper } = this.props;
 
 		// options
 		let options = this.props.options.map(function(opt, i) {
@@ -114,17 +117,20 @@ module.exports = React.createClass({
 			);
 		}
 
-		return (
+		const selectComponent = (
+				<div className="u-pos-relative">
+						<select className="FormInput FormSelect" id={forAndID} onChange={this.handleChange} onBlur={this.handleBlur} {...props}>
+								{options}
+						</select>
+						{this.renderIcon(icons.selectArrows)}
+				</div>
+		);
+
+		return showWithWrapper ? (
 			<div className={componentClass}>
 				{componentLabel}
-				<div className="u-pos-relative">
-					<select className="FormInput FormSelect" id={forAndID} onChange={this.handleChange} onBlur={this.handleBlur} {...props}>
-						{options}
-					</select>
-					{this.renderIcon(icons.selectArrows)}
-				</div>
+				{ selectComponent }
 				{validationMessage}
-			</div>
-		);
+			</div>) : selectComponent;
 	},
 });
