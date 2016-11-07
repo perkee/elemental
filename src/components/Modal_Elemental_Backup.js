@@ -1,9 +1,31 @@
 import React from '../react';
+import ReactDOM from 'react-dom';
 import Transition from 'react-addons-css-transition-group';
 import blacklist from 'blacklist';
 import classNames from 'classnames';
 
 import { canUseDOM } from '../constants';
+
+const TransitionPortal = React.createClass({
+	displayName: 'TransitionPortal',
+	componentDidMount() {
+		if (!canUseDOM) return;
+		let p = document.createElement('div');
+		document.body.appendChild(p);
+		this.portalElement = p;
+		this.componentDidUpdate();
+	},
+	componentDidUpdate() {
+		if (!canUseDOM) return;
+		ReactDOM.render(<Transition {...this.props}>{this.props.children}</Transition>, this.portalElement);
+	},
+	componentWillUnmount() {
+		if (!canUseDOM) return;
+		document.body.removeChild(this.portalElement);
+	},
+	portalElement: null,
+	render: () => null,
+});
 
 module.exports = React.createClass({
 	displayName: 'Modal',
@@ -126,12 +148,12 @@ module.exports = React.createClass({
 		var props = blacklist(this.props, 'backdropClosesModal', 'className', 'isOpen', 'onCancel');
 		return (
 			<div>
-				<Transition {...props} data-modal="true" className={className} transitionName="Modal-dialog" transitionEnterTimeout={260} transitionLeaveTimeout={140} component="div">
+				<TransitionPortal {...props} data-modal="true" className={className} /*onClick={this.handleModalClick}*/ transitionName="Modal-dialog" transitionEnterTimeout={260} transitionLeaveTimeout={140} component="div">
 					{this.renderDialog()}
-				</Transition>
-				<Transition transitionName="Modal-background" transitionEnterTimeout={140} transitionLeaveTimeout={240} component="div">
+				</TransitionPortal>
+				<TransitionPortal transitionName="Modal-background" transitionEnterTimeout={140} transitionLeaveTimeout={240} component="div">
 					{this.renderBackdrop()}
-				</Transition>
+				</TransitionPortal>
 			</div>
 		);
 	},
