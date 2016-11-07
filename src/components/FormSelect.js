@@ -28,8 +28,7 @@ module.exports = React.createClass({
 	},
 	getDefaultProps () {
 		return {
-			requiredMessage: 'This field is required',
-			withoutFormFieldWrapper: false
+			requiredMessage: 'This field is required'
 		};
 	},
 	getInitialState () {
