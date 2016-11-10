@@ -1,4 +1,4 @@
-var React = require('react');
+var React = require('../react');
 var classNames = require('classnames');
 var blacklist = require('blacklist');
 

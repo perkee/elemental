@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../react';
 import blacklist from 'blacklist';
 import classnames from 'classnames';
 import E from '../constants';

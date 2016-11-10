@@ -7,11 +7,20 @@
 
 // Reset the box-sizing
 
-* {
+// * {
+// 	.box-sizing(border-box);
+// }
+// *:before,
+// *:after {
+// 	.box-sizing(border-box);
+// }
+
+// in FreeWheel most UI are content-box by default
+.__elemental__ {
 	.box-sizing(border-box);
 }
-*:before,
-*:after {
+.__elemental__:before,
+.__elemental__:after {
 	.box-sizing(border-box);
 }
 

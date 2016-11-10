@@ -1,6 +1,6 @@
 const blacklist = require('blacklist');
 const classNames = require('classnames');
-const React = require('react');
+const React = require('../react');
 
 const Checkbox = React.createClass({
 	propTypes: {

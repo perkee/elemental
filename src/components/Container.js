@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from '../react';
 import theme from '../constants';
 
 function Container ({ children, clearfix, gutter, maxWidth, style, ...props }) {

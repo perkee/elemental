@@ -1,4 +1,4 @@
-var React = require('react');
+var React = require('../react');
 var blacklist = require('blacklist');
 var classNames = require('classnames');
 
@@ -8,8 +8,13 @@ module.exports = React.createClass({
 		className: React.PropTypes.string,
 		htmlFor: React.PropTypes.string,
 		id: React.PropTypes.string,
-		label: React.PropTypes.string,
+		label: React.PropTypes.oneOfType([
+			React.PropTypes.element,
+			React.PropTypes.string,
+		]),
+		labelStyle: React.PropTypes.object,
 		offsetAbsentLabel: React.PropTypes.bool,
+		inline: React.PropTypes.bool,
 		width: React.PropTypes.oneOf([
 			'one-half',
 			'two-quarters',
@@ -26,8 +31,15 @@ module.exports = React.createClass({
 			'four-fifths',
 			'one-sixth',
 			'five-sixths',
-		]),
+		])
 	},
+
+	getDefaultProps() {
+		return {
+			inline: false
+		};
+	},
+
 	render () {
 		// classes
 		var componentClass = classNames('FormField', {
@@ -35,19 +47,26 @@ module.exports = React.createClass({
 		}, this.props.width, this.props.className);
 
 		// props
-		var props = blacklist(this.props, 'className', 'label', 'offsetAbsentLabel', 'width');
+		var props = blacklist(this.props, 'className', 'label', 'offsetAbsentLabel', 'width', 'inline', 'labelStyle');
 
 		// elements
 		var componentLabel = this.props.label ? (
-			<label className="FormLabel" htmlFor={this.props.id || this.props.htmlFor}>
+			<label className="FormLabel" htmlFor={this.props.id || this.props.htmlFor} style={this.props.labelStyle}>
 				{this.props.label}
 			</label>
 		) : null;
 
+		// child components
+		var childComponents = this.props.inline ? (
+			<div className="inline-controls">
+				{this.props.children}
+			</div>
+		) : this.props.children;
+
 		return (
 			<div className={componentClass} {...props}>
 				{componentLabel}
-				{this.props.children}
+				{childComponents}
 			</div>
 		);
 	},

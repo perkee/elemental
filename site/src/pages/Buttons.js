@@ -49,8 +49,7 @@ const BUTTON_LINK_VARIANTS = [
 	{ label: 'Link Success',     value: 'link-success' },
 	{ label: 'Link Warning',     value: 'link-warning' },
 	{ label: 'Link Danger',      value: 'link-danger' },
-	{ label: 'Link Cancel',      value: 'link-cancel' },
-	{ label: 'Link Delete',      value: 'link-delete' }
+	{ label: 'Link Cancel',      value: 'link-cancel' }
 ];
 
 var Buttons = React.createClass({
@@ -79,13 +78,20 @@ var Buttons = React.createClass({
 					<Button type={type.value}>{type.label}</Button>
 				</div>
 			);
-		});
+		}).concat([(
+			<div key="disabled" className="code-example__example-element--inline">
+				<Button disabled type={variantType[0].value}>{variantType[0].label}</Button>
+			</div>
+		)]);
 	},
 	renderButtonVariantsSource(variantType) {
 		var parts = variantType.map(type => {
 			return `<Button type="${type.value}">${type.label}</Button>`;
 		});
-		return parts.join('\n');
+		var disabled = (
+			`<Button disabled type=${variantType[0].value}>${variantType[0].label}</Button>`
+		);
+		return parts.concat([disabled]).join('\n');
 	},
 
 	render () {

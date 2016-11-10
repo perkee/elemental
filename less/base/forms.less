@@ -161,11 +161,13 @@
 .Checkbox__input {
 	position: relative;
 	top: -1px;
+	.cursor-enabled;
 }
 
 .Checkbox__label,
 .Radio__label {
 	margin-left: .5em;
+	.cursor-enabled;
 }
 
 .inline-controls > .Checkbox,
@@ -179,12 +181,17 @@
 .Checkbox--disabled,
 .Radio--disabled {
 	color: @control-disabled-color;
+	.Checkbox__label,
+	.Radio__label {
+		.cursor-disabled;
+	}
 }
 
 @media (min-width: @screen-sm) {
 	.Checkbox,
 	.Radio {
 		line-height: @component-height;
+		margin-bottom: 0;
 	}
 }
 
@@ -276,7 +283,7 @@
 			display: inline-block;
 			padding-left: .25em;
 			padding-right: .25em;
-			vertical-align: top;
+			vertical-align: middle;
 
 			&:first-child { padding-left: 0; }
 			&:last-child { padding-right: 0; }

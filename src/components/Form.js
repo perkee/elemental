@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from '../react';
 
 function Form ({ className, component, type, ...props }) {
 	const Component = component;

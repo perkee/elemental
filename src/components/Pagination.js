@@ -1,4 +1,4 @@
-const React = require('react');
+const React = require('../react');
 const classNames = require('classnames');
 
 const Page = React.createClass({

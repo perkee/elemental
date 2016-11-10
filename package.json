@@ -1,13 +1,16 @@
 {
-  "name": "elemental",
-  "version": "0.6.1",
+  "name": "elemental-freewheel",
+  "version": "0.6.1-freewheel.5",
   "description": "React UI Framework",
   "main": "lib/Elemental.js",
   "author": "Jed Watson",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elementalui/elemental.git"
+    "url": "https://git.dev.fwmrm.net/us-web/elemental.git"
+  },
+  "publishConfig": {
+    "registry": "http://nexus.dev.fwmrm.net/nexus/content/repositories/npm-internal/"
   },
   "dependencies": {
     "blacklist": "^1.1.4",
@@ -44,7 +47,7 @@
     "build:lib": "gulp build:lib",
     "bump": "gulp bump",
     "lint": "eslint .",
-    "prepublish": "npm run build:lib",
+    "prepublish": "npm run build && npm run build:lib",
     "publish:npm": "gulp publish:npm",
     "publish:site": "gulp publish:examples",
     "publish:tag": "gulp publish:tag",

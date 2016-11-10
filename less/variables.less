@@ -14,12 +14,18 @@
 @keystone-blue:           #1385e5;
 @elemental-turquoise:     #31adb8;
 
-@brand-primary:           @elemental-turquoise;
-@app-primary:             @keystone-blue;
+@fw-blue: #1d7e9c;
 
-@app-danger:              #d64242;
-@app-info:                #0090e0;
-@app-success:             #34c240;
+@brand-primary:           @fw-blue;
+@app-primary:             @fw-blue;
+
+@app-danger-dark:         #b94a48;
+@app-danger:              #da4e49;
+@app-info-dark:           #3a87ad;
+@app-info:                #3a87ad;
+@app-success-dark:        #468847;
+@app-success:             #5ab45a;
+@app-warning-dark:        #c09853;
 @app-warning:             #fa9f47;
 
 @gray-base:               #000;
@@ -51,10 +57,10 @@
 
 @link-hover-decoration:    underline;
 
-@font-size-base:              14px;
-@font-size-xs:              0.8rem;
-@font-size-sm:              0.9rem;
-@font-size-lg:             1.25rem;
+@font-size-base:              12px;
+@font-size-xs:                10px;
+@font-size-sm:                11px;
+@font-size-lg:                14px;
 
 @font-weight-bold:             500;
 
@@ -78,8 +84,8 @@
 
 // used on inputs and buttons
 
-@component-line-height:      2.3em;
-@component-height:           2.4em;
+@component-line-height:      2.4em;
+@component-height:           2.5em;
 @component-padding:            1em;
 
 
@@ -115,7 +121,7 @@
 @form-animation-duration:    280ms;
 
 @form-label-color:            #777;
-@form-label-width:            180px;
+@form-label-width:            160px;
 @form-help-color:             @form-label-color;
 
 @input-bg-color:              white;
@@ -138,11 +144,11 @@
 // ------------------------------
 
 
-@button-font-weight:                500;
+@button-font-weight:                400;
 
 @button-padding-horizontal:         1em;
 
-@button-default-color:              @app-primary;
+@button-default-color:              #333;
 @button-default-border:             mix(@app-primary, @body-bg, 60%);
 @button-default-disabled-bg:        darken(@body-bg, 4%);
 
@@ -275,9 +281,9 @@
 // Misc
 // ------------------------------
 
-@border-radius-lg:            .5em;
-@border-radius-base:          .3em;
-@border-radius-sm:            .125em;
+@border-radius-lg:            0;
+@border-radius-base:          0;
+@border-radius-sm:            0;
 
 @spinner-dot-bg:               @gray-light;
 @spinner-dot-size:             8px;

@@ -6,6 +6,7 @@ var taskConfig = {
 	component: {
 		name: 'Elemental',
 		lib: 'lib',
+		pkgName: 'elemental',
 		dependencies: [
 			'blacklist',
 			'classNames',
